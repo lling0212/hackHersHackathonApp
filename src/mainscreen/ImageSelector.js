@@ -1,13 +1,20 @@
 // allows user to select a puzzle image
 
-import React from 'react'
+import React from 'react';
+import '/Users/mckennareale/Downloads/IntelliJ_files/hackHersHackathonApp/src/index.css'; // Import your CSS file
 
 const ImageSelector = () => {
-  return (
-    <div>
-      Image Selector
-    </div>
-  )
-}
+  const puzzles = ['Puzzle A', 'Puzzle B', 'Puzzle C'];
 
-export default ImageSelector
+  return (
+    <div className="puzzle-container">
+      {puzzles.map(puzzle => (
+        <div key={puzzle} className="puzzle">
+          {puzzle}
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default ImageSelector;
