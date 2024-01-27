@@ -1,10 +1,15 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import Context from '../Context.js'
 
 const AddTask = () => {
   
-      const [Name,setName] = useState('');
-      const [Blocks,setBlocks] = useState('');
+      const [text,setName] = useState('');
+      const [timeblocks,setBlocks] = useState(0);
+      const contextInfo = useContext(Context);
+      const doneblocks = 0;
+      const showPuzzle = false;
+      const state = "not started";
 
       const handleNameSetting = (event) => {
         setName(event.target.value);
@@ -16,11 +21,21 @@ const AddTask = () => {
 
       const handleSubmit = (event) => {
         event.preventDefault();
-        if (!Name){
+        if (!text){
           alert('Woops !You forgot to add your Task!')
           return
         }
-        //  need to append the data -- TBD 
+        
+        contextInfo.addTask({ text, timeblocks, doneblocks, showPuzzle, state });
+
+        // {
+        //   id: 1,
+        //   text: 'Review CIT 596 notes',
+        //   timeblocks: 2,
+        //   doneblocks: 0,
+        //   showPuzzle: false,
+        //   state: "not started",
+        // },
     
         // after appending resetting the form fields
         setName('');
@@ -43,7 +58,7 @@ const AddTask = () => {
       <input
         type="text"
         placeholder="Task Name"
-        value={Name}
+        value={text}
         onChange={handleNameSetting}
       >
          </input>
@@ -51,7 +66,7 @@ const AddTask = () => {
       <input
               type="number"
               placeholder="# of Blocks"
-              value={Blocks}
+              value={timeblocks}
               onChange={handleBlocksSetting}
             >
         </input>
