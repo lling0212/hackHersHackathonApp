@@ -1,11 +1,12 @@
-// a single task tile within the grid
+import React from 'react';
 
-import React from 'react'
+const Task = ( {key} ) => {
 
-const Task = () => {
+
   return (
-    <div>
-      Single Task
+    <div className="grid-item">
+        <p>TASK</p>
+        {key}
     </div>
   )
 }

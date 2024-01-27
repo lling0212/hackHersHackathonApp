@@ -129,7 +129,6 @@ function App() {
         <>
           <Header 
             onAdd = {()=>setShowAddTask(!showAddTask)} // for add task form button
-            onToggle = {()=>setPuzzleMode(!puzzleMode)} // may not need this as we have useContext
           />
 
           <Grid // may not need below parameters as we have useContext
@@ -141,15 +140,15 @@ function App() {
           />
 
           {showAddTask && <AddTask onAdd={addTask}/>}
-
+          
         </>
       ): (<Timer 
-          task={selectedTile} 
-          tasks={tasks} 
-          onComplete={completeTask} 
-          onDelete={deleteTask}
-          onStart={startTask}
-          onAddTime={addTimeToTask} 
+          // task={selectedTile} 
+          // tasks={tasks} 
+          // onComplete={completeTask} 
+          // onDelete={deleteTask}
+          // onStart={startTask}
+          // onAddTime={addTimeToTask} 
         />
       )} 
 
