@@ -1,102 +1,22 @@
 body {
-    background-color: #111827;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Creates a 3-column grid */
-  gap: 10px; /* Adjust the space between grid items */
-  width: 100%; /* Set the width to fit its container */
-  max-width: 600px; /* Maximum width can be adjusted as per your layout */
-  margin: 0 auto; /* Center the grid */
-  padding: 20px; /* Padding around the grid */
-  border-radius: 8px; /* Optional: adds rounded corners to the grid container */
-}
-
-.grid-item {
-  background-color: #1F2937; /* Slightly lighter color for the grid items */
-  color: #fff; /* White text color */
+.header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  border-radius: 4px; /* Optional: rounded corners for grid items */
-  font-size: 1.5em; /* Adjust the font size as needed */
+  margin-bottom: 20px;
 }
 
-/* Ensures that the grid items are squares */
-.grid-item::before {
-  content: '';
-  float: left;
-  padding-top: 100%; /* The padding-top percentage equals the width of the container, this ensures a square */
-}
-
-.grid-item::after {
-  content: '';
-  display: block;
-  clear: both;
-}
-
-/* Add responsive behavior */
-@media (max-width: 600px) {
-  .grid-container {
-    width: 90%; /* Adjust width for smaller screens */
-    max-width: none;
-  }
-}
-
-.puzzle-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  padding: 20px; /* Adjust padding as needed */
-}
-
-.puzzle {
-  background-color: #333; /* The color from the screenshot */
-  color: #fff; /* White text color */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: calc(33.333% - 20px); /* Adjust based on the gap and padding */
-  padding-top: 20%; /* Padding-top for a responsive square aspect ratio */
-  position: relative; /* Needed for the ::before trick */
-}
-
-.puzzle::before {
-  content: '';
-  display: block;
-  padding-top: 100%;
-}
-
-.puzzle::after {
-  content: '';
-  display: block;
-  clear: both;
-}
-
-/* This is to position the text in the middle of the square */
-.puzzle > div {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Add responsive behavior */
-@media (max-width: 600px) {
-  .puzzle-container {
-    flex-direction: column;
-  }
-
-  .puzzle {
-    width: 100%; /* Full width on smaller screens */
-    padding-top: 50%; /* Adjust the padding-top to maintain the square aspect ratio */
-  }
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
 
 .playbtn {
@@ -176,3 +96,174 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+
+/* for the add task form */
+
+
+.add-task-form{
+  
+  /* Styles for the form */
+form {
+  background: #34495e; /* Dark background for the form */
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Styles for input fields */
+input[type="text"],
+input[type="number"] {
+  width: calc(100% - 20px); /* Full width minus padding */
+  padding: 10px;
+  margin-bottom: 10px; /* Space between input fields and buttons */
+  border: 1px solid #bdc3c7; /* Light gray border */
+  border-radius: 4px;
+  background: #ecf0f1; /* Light background for input fields */
+  color: #333; /* Dark text color for contrast */
+}
+
+/* Reusable button styles */
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  margin-right: 10px; /* Spacing between buttons */
+}
+
+/* Styles specific to the cancel button */
+button[type="button"] {
+  background-color: #e74c3c; /* Red color */
+  color: white;
+}
+
+/* Styles specific to the submit/add task button */
+button[type="submit"] {
+  background-color: #2ecc71; /* Green color */
+  color: white;
+}
+
+/* Additional styles to remove default form spacing */
+/* You may need to adjust depending on your exact HTML structure */
+form * {
+  box-sizing: border-box;
+}
+
+/* Handle focus styles for input fields */
+input[type="text"]:focus,
+input[type="number"]:focus {
+  outline: none;
+  border-color: #3498db; /* Highlight color when input is focused */
+}
+
+/* Optional: Handle hover styles for buttons */
+button:hover {
+  filter: brightness(90%);
+}
+
+}
+
+/* for AddTask Button */
+
+.add-task-form{
+
+  /* Styles for the form */
+form {
+  background: #34495e; /* Dark background for the form */
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Styles for input fields */
+input[type="text"],
+input[type="number"] {
+  width: calc(100% - 20px); /* Full width minus padding */
+  padding: 10px;
+  margin-bottom: 10px; /* Space between input fields and buttons */
+  border: 1px solid #bdc3c7; /* Light gray border */
+  border-radius: 4px;
+  background: #ecf0f1; /* Light background for input fields */
+  color: #333; /* Dark text color for contrast */
+}
+
+/* Reusable button styles */
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  margin-right: 10px; /* Spacing between buttons */
+}
+
+/* Styles specific to the cancel button */
+button[type="button"] {
+  background-color: #e74c3c; /* Red color */
+  color: white;
+}
+
+/* Styles specific to the submit/add task button */
+button[type="submit"] {
+  background-color: #2ecc71; /* Green color */
+  color: white;
+}
+
+/* Additional styles to remove default form spacing */
+/* You may need to adjust depending on your exact HTML structure */
+form * {
+  box-sizing: border-box;
+}
+
+/* Handle focus styles for input fields */
+input[type="text"]:focus,
+input[type="number"]:focus {
+  outline: none;
+  border-color: #3498db; /* Highlight color when input is focused */
+}
+
+/* Optional: Handle hover styles for buttons */
+button:hover {
+  filter: brightness(90%);
+}
+
+}
+
+/* css for generic button */
+.genericbtn{
+
+  background-color: #28a745; /* Bootstrap's green */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.green-button:hover {
+  background-color: #218838; /* A darker green for hover state */
+}
+
+.green-button:active {
+  background-color: #1e7e34; /* An even darker green for active state */
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.green-button:focus {
+  outline: none; /* Removes the outline on focus for browsers that show it */
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5); /* A light green glow */
+}
+
+
+
