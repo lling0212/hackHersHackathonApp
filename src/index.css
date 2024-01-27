@@ -1,3 +1,7 @@
+body {
+    background-color: #111827;
+}
+
 .grid-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* Creates a 3-column grid */
@@ -6,12 +10,11 @@
   max-width: 600px; /* Maximum width can be adjusted as per your layout */
   margin: 0 auto; /* Center the grid */
   padding: 20px; /* Padding around the grid */
-  background-color: #1a1a1a; /* Dark background as shown in the image */
   border-radius: 8px; /* Optional: adds rounded corners to the grid container */
 }
 
 .grid-item {
-  background-color: #333; /* Slightly lighter color for the grid items */
+  background-color: #1F2937; /* Slightly lighter color for the grid items */
   color: #fff; /* White text color */
   display: flex;
   justify-content: center;
