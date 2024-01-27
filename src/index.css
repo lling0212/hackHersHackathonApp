@@ -135,7 +135,7 @@ input:checked + .slider:before {
 }
 
 input:checked + .slider {
-  background-color: #7F00FF	;
+  background-color: #1d4ed8 	;
 }
 
 input:focus + .slider {
@@ -162,7 +162,7 @@ input:focus + .slider {
 
 /* Styles for AddTask when it's supposed to show */
 .add-task-visible {
-  width: 250px; /* Width of the form when visible */
+  width: 300px; /* Width of the form when visible */
   position: absolute;
   right: 20px; 
   top: 0;
@@ -187,12 +187,15 @@ input:focus + .slider {
   padding: 20px; /* Add some padding around the form */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   align-self: flex-start;
+  width: 300px
 }
 
   /* Styles for the form */
 form {
   background: #333; /* Dark background for the form */
-  padding: 30px;
+  padding: 30px 20px;
+  margin-right: 20px;
+  
   border-radius: 5px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
@@ -200,9 +203,11 @@ form {
 /* Styles for input fields */
 input[type="text"],
 input[type="number"] {
-  width: calc(100% - 20px); /* Full width minus padding */
+  /* width: calc(100% - 20px); Full width minus padding */
+  width: 100%; 
   padding: 10px;
-  margin-bottom: 10px; /* Space between input fields and buttons */
+  font-size: 20px;
+  margin-bottom: 30px; /* Space between input fields and buttons */
   border: 1px solid #bdc3c7; /* Light gray border */
   border-radius: 4px;
   background: #ecf0f1; /* Light background for input fields */
@@ -214,6 +219,7 @@ button {
   padding: 10px 15px;
   border: none;
   border-radius: 4px;
+  font-size: 20px;
   cursor: pointer;
   font-weight: bold;
   transition: background-color 0.3s ease;
@@ -222,13 +228,14 @@ button {
 
 /* Styles specific to the cancel button */
 button[type="button"] {
-  background-color: #FF5733; /* Red color */
+  background-color: #333; /* Red color */
+  border: 1px solid #ffffff; /* Corrected border property */
   color: white;
 }
 
 /* Styles specific to the submit/add task button */
 button[type="submit"] {
-  background-color: #7F00FF; /* Green color */
+  background-color: #26c25f ; /* Green color */
   color: white;
 }
 
@@ -309,4 +316,8 @@ button:hover {
 
 .puzzle:hover {
   background-color: #555; /* Slightly lighter background color on hover */
+}
+
+.puzzle.selected {
+  border: 3px solid #FFFFFF; /*  */
 }

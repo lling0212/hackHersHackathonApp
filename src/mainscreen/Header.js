@@ -14,7 +14,7 @@ const Header = ({onAdd}) => {
         <PuzzleToggle/>
         <h1> Pomo Puzzle </h1>
         {/* <h2>{ puzzleChosen }</h2> */}
-        <GenericButton color="#7F00FF" text="Add Task" textColor="white" onClick={onAdd}/>
+        <GenericButton color="#1d4ed8 " text="Add Task" textColor="white" onClick={onAdd}/>
       </header>
     </div>
   )
