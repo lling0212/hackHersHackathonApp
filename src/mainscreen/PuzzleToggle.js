@@ -1,26 +1,24 @@
-import React, { useState } from 'react'
-import './PuzzleToggle.css';
+import React, { useState, useContext } from 'react'
+import Context from '../Context.js';
 
 const PuzzleToggle = () => {
-
-    const [puzzleMode, setPuzzleMode] = useState(false)
-    
-    // toggleMode toggles the value every time the fn is called
-    const toggleMode = () => {
-        setPuzzleMode(!puzzleMode);
-    };
+  const contextInfo = useContext(Context);
 
   return (
     <div>
     <label className="puzzle-toggle">
-    <input
+        <input
         type="checkbox"
-        checked={isPuzzleMode}
-        onChange={togglePuzzleMode}
-        ></input>
+        checked={contextInfo.puzzleMode}
+        onChange={() => {
+          console.log(`before: ${contextInfo.puzzleMode}`)
+          contextInfo.setPuzzleMode(!contextInfo.puzzleMode)
+          console.log(`after: ${contextInfo.puzzleMode}`)
+        }}>
+        </input>
 
     <span className="slider round"></span>
-    Puzzle Mode
+    <p>Puzzle Mode</p>
 
     </label>
 

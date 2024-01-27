@@ -3,12 +3,13 @@ import React from 'react'
 import { useState, useContext } from 'react';
 import Context from '../Context.js';
 import GenericButton from '../timerscreen/GenericButton.js';
+import PuzzleToggle from './PuzzleToggle.js';
 
-const Header = ({onAdd, onToggle}) => {
+const Header = ({onAdd}) => {
   return (
     <div>
       <header className='header'>
-
+        <PuzzleToggle/>
         <h1> Pomo Puzzle </h1>
         <GenericButton color="blue" text="Add Task" textColor="white" onClick={onAdd}/>
       </header>
