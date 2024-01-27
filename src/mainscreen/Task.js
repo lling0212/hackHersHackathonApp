@@ -16,7 +16,9 @@ const Task = ({ index }) => {
   if (task && task.state === "started") {
     myClass = "grid-item started"
   }
-
+  if (task && task.state === "not started") {
+    myClass = "grid-item notstarted"
+  }   
 
   return (
     <div className={myClass}
