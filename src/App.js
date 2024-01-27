@@ -144,9 +144,10 @@ function App() {
           <div className={showAddTask ? 'add-task-visible' : 'add-task-hidden'}>
           {showAddTask && <AddTask onAdd={addTask}/>}
           </div>
-          </div>
           
           <ImageSelector/>
+          </div>
+          
         </>
         
 
