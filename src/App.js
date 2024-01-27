@@ -13,7 +13,7 @@ function App() {
   const [showMainScr, setShowMainScr] = useState(true);
   const [showAddTask, setShowAddTask]  = useState(false);
   const [showTimer, setShowTimer]  = useState(false);
-  const [puzzleChosen, setPuzzleChosen] = useState("image1.jpg"); // img name to be changed
+  const [puzzleChosen, setPuzzleChosen] = useState("test.jpeg"); // img name to be changed
   const [puzzleMode, setPuzzleMode] = useState(true);
   const [selectedTile, setSelectedTile] = useState(0); // index of chosen tile: 0 - 8
 

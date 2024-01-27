@@ -18,7 +18,7 @@ const PuzzleToggle = () => {
         </input>
 
     <span className="slider round"></span>
-    <p>Puzzle Mode</p>
+    <p className='puzzle-mode-title'>Puzzle Mode</p>
 
     </label>
 
