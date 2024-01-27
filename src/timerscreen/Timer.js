@@ -4,12 +4,13 @@ import PlayButton from './PlayButton'; // Ensure these imports match your file s
 import PauseButton from './PauseButton';
 import React, { useState, useContext, useRef, useEffect } from 'react'
 import Context from '../Context'
+import './Timer.css'
 
 const red = '#2C3E50';
 const green = '#26c25f';
 
 const Timer = () => {
-  const {selectedTile} = useContext(Context);
+  const {selectedTile, setShowMainScr, setShowTimer } = useContext(Context);
   const {workMode} = useState(true);
   const [quotes, setQuotes] = useState([
     {id: 1, text: "You don't have to be great to start, but you have to start to be great"},
@@ -120,8 +121,8 @@ const Timer = () => {
     };
 
     const handleHomeClick = () => {
-      // Implement your logic to go to the home screen
-      // For example, if you're using React Router, you might use history.push('/')
+      setShowMainScr(true);
+      setShowTimer(false);
     };
 
     const handleDeleteTask = () => {
