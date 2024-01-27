@@ -1,5 +1,12 @@
-import React, { useState, useContext } from 'react'
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
+import PlayButton from './PlayButton'; // Ensure these imports match your file structure
+import PauseButton from './PauseButton';
+import React, { useState, useContext, useRef, useEffect } from 'react'
 import Context from '../Context'
+
+const red = '#2C3E50';
+const green = '#26c25f';
 
 const Timer = () => {
   const {selectedTile} = useContext(Context);
@@ -54,17 +61,134 @@ const Timer = () => {
       text: "🎧 Listen to this tune",
       link: "https://www.youtube.com/watch?v=aAQZPBwz2CI",
     },
+
   ]);
   
   const [activityIndex, setActivityIndex] = useState(Math.floor(Math.random() * breakActivities.length));
   const [quoteIndex, setQuoteIndex] = useState(Math.floor(Math.random() * quotes.length));
 
-  return (
-    <div>
-      Timer
-      {selectedTile}
-    </div>
-  )
+    const workMinutes = 25;
+    const breakMinutes = 5;
+
+    const [isPaused, setIsPaused] = useState(true);
+    const [mode, setMode] = useState('work');
+    const [secondsLeft, setSecondsLeft] = useState(workMinutes * 60);
+    const [completedBlocks, setCompletedBlocks] = useState(0);
+
+    const secondsLeftRef = useRef(secondsLeft);
+    const isPausedRef = useRef(isPaused);
+    const modeRef = useRef(mode);
+
+    useEffect(() => {
+      function switchMode() {
+        const nextMode = modeRef.current === 'work' ? 'break' : 'work';
+        const nextSeconds = (nextMode === 'work' ? workMinutes : breakMinutes) * 60;
+
+        setMode(nextMode);
+        modeRef.current = nextMode;
+
+        setSecondsLeft(nextSeconds);
+        secondsLeftRef.current = nextSeconds;
+
+        if (nextMode === 'break') {
+          setCompletedBlocks(blocks => blocks + 1);
+        }
+
+        setIsPaused(true);
+        isPausedRef.current = true;
+      }
+
+      function tick() {
+        if (isPausedRef.current) {
+          return;
+        }
+        if (secondsLeftRef.current === 0) {
+          switchMode();
+        } else {
+          secondsLeftRef.current--;
+          setSecondsLeft(secondsLeftRef.current);
+        }
+      }
+
+      const interval = setInterval(tick, 1000);
+      return () => clearInterval(interval);
+    }, []);
+
+    const handlePlayPause = () => {
+      setIsPaused(!isPaused);
+      isPausedRef.current = !isPaused;
+    };
+
+    const handleHomeClick = () => {
+      // Implement your logic to go to the home screen
+      // For example, if you're using React Router, you might use history.push('/')
+    };
+
+    const handleDeleteTask = () => {
+      // Logic for deleting a task
+      console.log("Task deleted");
+      // You can update state here to reflect the deletion
+    };
+
+    const totalSeconds = mode === 'work' ? workMinutes * 60 : breakMinutes * 60;
+    const percentage = Math.round(secondsLeft / totalSeconds * 100);
+
+    const minutes = Math.floor(secondsLeft / 60);
+    let seconds = secondsLeft % 60;
+    if (seconds < 10) seconds = `0${seconds}`;
+
+    return (
+        <div className="timer-container">
+          <button className="home-button" onClick={handleHomeClick}>
+            Home
+          </button>
+
+          <div className="progress-bar-container">
+            <CircularProgressbar
+              value={percentage}
+              text={`${minutes}:${seconds}`}
+              styles={buildStyles({
+                textColor: '#fff',
+                pathColor: mode === 'work' ? red : green,
+                trailColor: '#121212',
+                backgroundColor: '#121212',
+                textSize: '18px',
+                pathTransitionDuration: 0.5,
+                strokeLinecap: 'butt',
+                strokeWidth: 1,
+              })}
+              background
+              backgroundPadding={6}
+            />
+          </div>
+
+          <div className="buttons-container">
+            {isPaused
+              ? <PlayButton onClick={handlePlayPause} />
+              : <PauseButton onClick={handlePlayPause} />}
+            <button
+              className="im-done-button"
+              onClick={() => {/* handle the 'I'm done' action here */}}
+            >
+              I'm done
+            </button>
+          </div>
+
+          <div className="horizontal-bar"></div>
+
+          <div className="completed-blocks-container">
+            Completed Blocks: {completedBlocks}
+          </div>
+
+          <p className="motivational-text">
+            "Stay focused and never give up."
+          </p>
+
+          <button className="delete-task-button" onClick={handleDeleteTask}>
+            Delete Task
+          </button>
+        </div>
+      );
 }
 
 export default Timer

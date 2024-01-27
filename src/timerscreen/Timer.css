@@ -1,0 +1,124 @@
+/* Timer.css */
+
+body, html {
+  margin: 0;
+  padding: 0;
+  background-color: #121212; /* Set the background color */
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.timer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  position: relative; /* Needed for absolute positioning of children */
+  background-color: #121212;
+}
+
+.progress-bar-container {
+  width: 450px;
+  height: 450px;
+  margin-top: -150px;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  width: 300px;
+}
+
+.PlayButton, .PauseButton, .im-done-button {
+  flex-grow: 1;
+  background-color: #21C55E;
+  border: none;
+  font-weight: bold;
+  height: 70px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin: 0 10px;
+  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.horizontal-bar {
+  height: 4px;
+  background-color: #ffffff;
+  width: 80%;
+  margin: 20px auto;
+}
+
+.motivational-text {
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 0 20px;
+  max-width: 450px;
+  width: 100%;
+}
+
+.completed-blocks-container {
+  background-color: #2C3E50;
+  color: white;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin: 20px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  display: inline-block;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.completed-blocks-text {
+  display: none; /* Hide this text if we're using .completed-blocks-container instead */
+}
+
+.home-button {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: #2C3E50; /* Background color is set to #121212 */
+  color: white;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+
+.home-button:hover {
+  background-color: #26c25f; /* Darken the color on hover, adjust the color as needed */
+}
+
+.delete-task-button {
+  position: fixed; /* Fixed position relative to the viewport */
+  bottom: 10px; /* 10px from the bottom */
+  right: 10px; /* 10px from the right */
+  background-color: #2C3E50; /* Background color of your choice */
+  color: white; /* Text color */
+  border: none;
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px 20px; /* Padding inside the button */
+  cursor: pointer;
+  font-size: 1rem; /* Font size */
+  z-index: 1000; /* Ensures the button is above other elements */
+  transition: background-color 0.3s ease;
+  white-space: nowrap;
+  min-width: 120px
+}
+
+.delete-task-button:hover {
+  background-color: red; /* Darken the color on hover */
+}

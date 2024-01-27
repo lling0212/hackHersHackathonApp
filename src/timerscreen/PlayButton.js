@@ -1,36 +1,11 @@
-import React from 'react'
-import '/Users/nikitasingh/git/HackHers Project/hackHersHackathonApp/src/index.css'
-
-const PlayButton = ({onPlay}) => {
+function PlayButton(props) {
   return (
-    <div>
-    <button
-    onClick={onPlay}
-    className='playbtn'
-    aria-label="Play"
-    >
-
-    <svg
-    viewBox="0 0 24 24"
-        width="24" height="24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="play-icon"
-    >
-      
-      <polygon points="5 3 19 12 5 21 5 3">
-
-      </polygon>
+    <button {...props}>
+      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="#1d4ed8">
+        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
       </svg>
-      </button>
-    
-    
-      
-    </div>
-  )
+    </button>
+  );
 }
 
-export default PlayButton
+export default PlayButton;
