@@ -13,9 +13,9 @@ const Grid = () => {
   return (
     <div className="grid-container">
       
-      {gridNumbers.map((number) => (
+      {gridNumbers.map((number, index) => (
         tasks.length >= number
-          ? <Task key={number} />
+          ? <Task key={number} index={index}/>
           : <EmptyTile key={number} />
       ))}
       

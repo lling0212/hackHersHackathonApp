@@ -11,9 +11,9 @@ const PuzzleToggle = () => {
         type="checkbox"
         checked={contextInfo.puzzleMode}
         onChange={() => {
-          console.log(`before: ${contextInfo.puzzleMode}`)
+          // console.log(`before: ${contextInfo.puzzleMode}`)
           contextInfo.setPuzzleMode(!contextInfo.puzzleMode)
-          console.log(`after: ${contextInfo.puzzleMode}`)
+          // console.log(`after: ${contextInfo.puzzleMode}`)
         }}>
         </input>
 

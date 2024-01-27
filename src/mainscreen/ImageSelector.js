@@ -1,18 +1,18 @@
-// allows user to select a puzzle image
-
 import React from 'react';
-import '../index.css'; // Import your CSS file
+import Context from '../Context';
+import { useContext } from 'react';
+import MyImage from './MyImage.js';
 
 const ImageSelector = () => {
-  const puzzles = ['Puzzle A', 'Puzzle B', 'Puzzle C'];
+  const puzzles = ['puzzle1.jpeg', 'test.jpeg', 'puzzle3.jpeg'];
 
   return (
-    <div className="puzzle-container">
-      {puzzles.map(puzzle => (
-        <div key={puzzle} className="puzzle">
-          {puzzle}
-        </div>
-      ))}
+    <div className="puzzle-strip">
+      <div className="puzzle-container">
+        {puzzles.map((puzzle) => (
+          <MyImage key={puzzle} imageChosen={puzzle}/>
+        ))}
+      </div>
     </div>
   );
 };

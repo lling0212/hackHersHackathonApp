@@ -1,0 +1,43 @@
+.grid-item {
+    background-color: #333; /* Slightly lighter color for the grid items */
+    color: #fff; /* White text color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px; /* Optional: rounded corners for grid items */
+    font-size: 1.5em; /* Adjust the font size as needed */
+  }
+
+.grid-item.complete {
+    background-color: green; /* Slightly lighter color for the grid items */
+  }
+
+.grid-item.started {
+    background-color: orange; /* Slightly lighter color for the grid items */
+    color: #fff; /* White text color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px; /* Optional: rounded corners for grid items */
+    font-size: 1.5em; /* Adjust the font size as needed */
+  }
+
+.task-title {
+    font-size: 20px;
+    text-align: center;
+    line-height: 100%; 
+}
+
+.task-progress {
+    font-size: 14px;
+    position: absolute;
+    bottom: -30px;
+    right: 5px;
+}
+
+.task-text-box {
+    max-width: 100%;
+    max-height: 100%;
+    padding: 10% 10%;
+    position: relative; 
+}

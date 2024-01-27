@@ -6,11 +6,14 @@ import GenericButton from '../timerscreen/GenericButton.js';
 import PuzzleToggle from './PuzzleToggle.js';
 
 const Header = ({onAdd}) => {
+  const { puzzleChosen } = useContext(Context);
+
   return (
     <div>
       <header className='header'>
         <PuzzleToggle/>
         <h1> Pomo Puzzle </h1>
+        {/* <h2>{ puzzleChosen }</h2> */}
         <GenericButton color="#7F00FF" text="Add Task" textColor="white" onClick={onAdd}/>
       </header>
     </div>
