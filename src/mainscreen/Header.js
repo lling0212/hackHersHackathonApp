@@ -1,12 +1,17 @@
 // title of our app; potentially add toggle between timer / main screen here?
 import React from 'react'
+import { useState, useContext } from 'react';
+import Context from '../Context.js';
+import GenericButton from '../timerscreen/GenericButton.js';
 
-const Header = () => {
+const Header = ({onAdd, onToggle}) => {
   return (
     <div>
       <header className='header'>
-        <h1> TASK TRACKER HEADER </h1>
-        </header>
+
+        <h1> Pomo Puzzle </h1>
+        <GenericButton color="blue" text="Add Task" textColor="white" onClick={onAdd}/>
+      </header>
     </div>
   )
 }

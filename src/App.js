@@ -1,8 +1,9 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import Grid from './mainscreen/Grid.js';
 import AddTask from './mainscreen/AddTask.js';
 import ImageSelector from './mainscreen/ImageSelector.js';
+import Context from './Context.js';
 import Header from './mainscreen/Header.js';
 import Timer from './timerscreen/Timer.js';
 
@@ -87,11 +88,12 @@ function App() {
   }
 
   const addTask =(task) => {
-    // TO DO - add a task to the grid
-    // make sure you don't add if 
+    // add a task to the grid
     const id = Math.floor(Math.random()*10000) + 1
     const newTask = {id, ... task}
-    setTasks([...tasks, newTask])
+    if (tasks.length < 9) { 
+      setTasks([...tasks, newTask])
+    }
   }
 
   // functions to modify image selected?
@@ -101,35 +103,59 @@ function App() {
   return (
     // change classNames
     <div className="container"> 
-      {showMainScr 
-      ? <>
+      <Context.Provider value = {{
+        showMainScr,
+        setShowMainScr,
+        showAddTask,
+        setShowAddTask,
+        showTimer,
+        setShowTimer,
+        puzzleChosen,
+        setPuzzleChosen,
+        puzzleMode,
+        setPuzzleMode,
+        selectedTile,
+        setSelectedTile,
+        tasks,
+        setTasks,
+        deleteTask,
+        completeTask,
+        startTask,
+        addTimeToTask,
+        toggleShowImage,
+        addTask,}}>
+
+      {showMainScr ? (
+        <>
           <Header 
-            title = "Task Tracker"
             onAdd = {()=>setShowAddTask(!showAddTask)} // for add task form button
-            onToggle = {()=>setShowAddTask(!showAddTask)} // toggle between puzzle modes
+            onToggle = {()=>setPuzzleMode(!puzzleMode)} // may not need this as we have useContext
           />
-          <Grid 
+
+          <Grid // may not need below parameters as we have useContext
             tasks={tasks} 
-            onDelete={deleteTask}
-            // onClick={} // start timer, make main disappear when a tile is clicked
-
-
-            // change seleceted Tile
-            // imageChosen={}
-            // setImageChosen={}
+            onClick={()=> {
+              setShowAddTask(!showAddTask)
+            }} // when tile is clicked: start timer, make main disappear when a tile is clicked
+            // modify seleceted Tile; imageChosen={}; setImageChosen={}
           />
+
+          {showAddTask && <AddTask onAdd={addTask}/>}
+
         </>
-      : <Timer  />} 
+      ): (<Timer 
+          task={selectedTile} 
+          tasks={tasks} 
+          onComplete={completeTask} 
+          onDelete={deleteTask}
+          onStart={startTask}
+          onAddTime={addTimeToTask} 
+        />
+      )} 
 
-      {showAddTask && <AddTask onAdd={addTask}/>}
-
+      </Context.Provider>
     </div>
   );
 }
-
-//onComplete task={task} onDelete={deleteTask}
-
-// default: show main (grid, image selector, add task controlled by button)
-// click on tile: 
 
 export default App;
