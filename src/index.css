@@ -7,6 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
 .grid-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* Creates a 3-column grid */
@@ -17,6 +18,7 @@ body {
   padding: 20px; /* Padding around the grid */
   background-color: #1a1a1a; /* Dark background as shown in the image */
   border-radius: 8px; /* Optional: adds rounded corners to the grid container */
+  min-width: 600px;
 }
 
 .grid-item {
@@ -52,9 +54,13 @@ body {
 
 .header {
   display: flex;
+  box-sizing: border-box;
   justify-content: space-between;
   align-items: center;
+  margin: 0; /*  check there's no margin collapsing */
+  padding: 0 30px; /* Ensure there's no padding collapsing and added padding to left and right */
   margin-bottom: 20px;
+  width: 100%;
 }
 
 code {
@@ -118,11 +124,11 @@ code {
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #7F00FF	;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px #7F00FF	;
 }
 
 input:checked + .slider:before {
@@ -143,80 +149,39 @@ input:checked + .slider:before {
 
 /* for the add task form */
 
-
-.add-task-form{
-  
-  /* Styles for the form */
-form {
-  background: #34495e; /* Dark background for the form */
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+/* Styles for AddTask when it's supposed to show */
+.add-task-visible {
+  width: 300px; /* Width of the form when visible */
+  position: absolute;
+  right: 30px; 
+  top: 0;
+  /* transition: transform 0.3s ease-in-out;
+  transform: translateX(0); /* Start from its own position */
 }
 
-/* Styles for input fields */
-input[type="text"],
-input[type="number"] {
-  width: calc(100% - 20px); /* Full width minus padding */
-  padding: 10px;
-  margin-bottom: 10px; /* Space between input fields and buttons */
-  border: 1px solid #bdc3c7; /* Light gray border */
-  border-radius: 4px;
-  background: #ecf0f1; /* Light background for input fields */
-  color: #333; /* Dark text color for contrast */
+/* Styles for AddTask when it's supposed to be hidden */
+.add-task-hidden {
+  width: 300px; /* Width of the form when hidden */
+  /* transition: transform 0.3s ease-in-out;
+  transform: translateX(100%); /* Hide off-screen to the right */
 }
 
-/* Reusable button styles */
-button {
-  padding: 10px 15px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-  margin-right: 10px; /* Spacing between buttons */
-}
 
-/* Styles specific to the cancel button */
-button[type="button"] {
-  background-color: #e74c3c; /* Red color */
-  color: white;
-}
-
-/* Styles specific to the submit/add task button */
-button[type="submit"] {
-  background-color: #2ecc71; /* Green color */
-  color: white;
-}
-
-/* Additional styles to remove default form spacing */
-/* You may need to adjust depending on your exact HTML structure */
-form * {
-  box-sizing: border-box;
-}
-
-/* Handle focus styles for input fields */
-input[type="text"]:focus,
-input[type="number"]:focus {
-  outline: none;
-  border-color: #3498db; /* Highlight color when input is focused */
-}
-
-/* Optional: Handle hover styles for buttons */
-button:hover {
-  filter: brightness(90%);
-}
-
-}
 
 /* for AddTask Button */
 
 .add-task-form{
+  position: absolute;
+  margin-top: 10px; /* Adjust the value as needed */
+  padding: 20px; /* Add some padding around the form */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  align-self: flex-start;
+}
 
   /* Styles for the form */
 form {
-  background: #34495e; /* Dark background for the form */
-  padding: 20px;
+  background: #333; /* Dark background for the form */
+  padding: 40px;
   border-radius: 5px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
@@ -246,13 +211,13 @@ button {
 
 /* Styles specific to the cancel button */
 button[type="button"] {
-  background-color: #e74c3c; /* Red color */
+  background-color: #FF5733; /* Red color */
   color: white;
 }
 
 /* Styles specific to the submit/add task button */
 button[type="submit"] {
-  background-color: #2ecc71; /* Green color */
+  background-color: #009E60; /* Green color */
   color: white;
 }
 
@@ -274,17 +239,15 @@ button:hover {
   filter: brightness(90%);
 }
 
-}
+
 
 /* css for generic button */
 .genericbtn{
-
-  background-color: #28a745; /* Bootstrap's green */
   color: white;
-  padding: 10px 20px;
+  padding: 15px 30px;
   border: none;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 22px;
   font-weight: bold;
   cursor: pointer;
   text-align: center;
@@ -308,3 +271,28 @@ button:hover {
   box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5); /* A light green glow */
 }
 
+/* image selector*/
+
+.puzzle-container {
+  display: absolute;
+  flex-direction: column;
+  justify-content: center; /* Center the puzzle selectors horizontally */
+  align-items: center; /* Align the puzzle selectors vertically */
+  padding: 20px; /* Add some padding around the entire container */
+  gap: 20px; /* Add space between each puzzle selector */
+}
+
+.puzzle {
+  flex: 1; /* Each puzzle selector will take up equal space */
+  padding: 50px 50px; /* Padding inside each puzzle selector for spacing */
+  text-align: center; /* Center the text inside each puzzle selector */
+  background-color: #333; /* Background color of the puzzle selectors */
+  color: #fff; /* Text color of the puzzle selectors */
+  border-radius: 5px; /* Rounded corners for the puzzle selectors */
+  cursor: pointer; /* Change mouse cursor to pointer when hovering over the selectors */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.puzzle:hover {
+  background-color: #555; /* Slightly lighter background color on hover */
+}

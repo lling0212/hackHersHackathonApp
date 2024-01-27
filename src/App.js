@@ -131,6 +131,8 @@ function App() {
             onAdd = {()=>setShowAddTask(!showAddTask)} // for add task form button
           />
 
+          <div className={`main-content ${showAddTask ? 'row-layout' : ''}`}>
+          
           <Grid // may not need below parameters as we have useContext
             tasks={tasks} 
             onClick={()=> {
@@ -138,9 +140,12 @@ function App() {
             }} // when tile is clicked: start timer, make main disappear when a tile is clicked
             // modify seleceted Tile; imageChosen={}; setImageChosen={}
           />
-
-          {showAddTask && <AddTask onAdd={addTask}/>}
           
+          <div className={showAddTask ? 'add-task-visible' : 'add-task-hidden'}>
+          {showAddTask && <AddTask onAdd={addTask}/>}
+          </div>
+          </div>
+
         </>
       ): (<Timer 
           // task={selectedTile} 
@@ -154,6 +159,7 @@ function App() {
 
       </Context.Provider>
     </div>
+    
   );
 }
 

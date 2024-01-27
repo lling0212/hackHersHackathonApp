@@ -2,6 +2,31 @@
   text-align: center;
 }
 
+.container {
+  display: flex;
+  flex-direction: column; /* Stack header and main content vertically */
+  align-items: stretch; /* Align children in the center */
+  width: 100%; /* Ensures the container takes full width */
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.main-content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column; /* Default layout */
+  align-items: center; /* Center grid in the column layout */
+  width: 100%; /* Full width */
+  transition: flex-direction 0.3s ease-in-out; /* Smooth transition for layout change */
+}
+
+.main-content.row-layout {
+  flex-direction: row; /* Layout changes when AddTask is visible */
+  justify-content: space-between; /* Spacing between Grid and AddTask */
+  align-items: flex-start; /* Align items to the top */
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
