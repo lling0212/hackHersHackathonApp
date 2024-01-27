@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  background-color: #121212;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -274,8 +275,11 @@ button:hover {
 /* image selector*/
 
 .puzzle-container {
-  display: absolute;
-  flex-direction: column;
+  display: flex;
+  flex-direction: row;
+  min-width: 500px;
+  max-width: 250px;
+  margin: 0 auto;
   justify-content: center; /* Center the puzzle selectors horizontally */
   align-items: center; /* Align the puzzle selectors vertically */
   padding: 20px; /* Add some padding around the entire container */
@@ -284,7 +288,7 @@ button:hover {
 
 .puzzle {
   flex: 1; /* Each puzzle selector will take up equal space */
-  padding: 50px 50px; /* Padding inside each puzzle selector for spacing */
+  padding: 0px 0px; /* Padding inside each puzzle selector for spacing */
   text-align: center; /* Center the text inside each puzzle selector */
   background-color: #333; /* Background color of the puzzle selectors */
   color: #fff; /* Text color of the puzzle selectors */

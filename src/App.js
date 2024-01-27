@@ -145,7 +145,6 @@ function App() {
           {showAddTask && <AddTask onAdd={addTask}/>}
           </div>
           
-          <ImageSelector/>
           </div>
           
         </>
@@ -160,8 +159,9 @@ function App() {
           // onAddTime={addTimeToTask} 
         />
       )} 
-
+      {showMainScr && <ImageSelector/>}
       </Context.Provider>
+      
     </div>
     
   );
