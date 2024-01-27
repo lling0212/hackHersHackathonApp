@@ -3,7 +3,7 @@ import Context from '../Context'
 
 const Timer = () => {
   const {selectedTile} = useContext(Context);
-  const {workMode} = useContext(true);
+  const {workMode} = useState(true);
   const [quotes, setQuotes] = useState([
     {id: 1, text: "You don't have to be great to start, but you have to start to be great"},
     {id: 2, text: "Your dreams are valid, and so is your effort. Keep going"},
