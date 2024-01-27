@@ -145,8 +145,11 @@ function App() {
           {showAddTask && <AddTask onAdd={addTask}/>}
           </div>
           </div>
-
+          
+          <ImageSelector/>
         </>
+        
+
       ): (<Timer 
           // task={selectedTile} 
           // tasks={tasks} 
