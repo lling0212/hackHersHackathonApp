@@ -5,6 +5,7 @@ import PauseButton from './PauseButton';
 import React, { useState, useContext, useRef, useEffect } from 'react'
 import Context from '../Context'
 import './Timer.css'
+import GenericButton from './GenericButton';
 
 const red = '#2C3E50';
 const green = '#26c25f';
@@ -172,9 +173,16 @@ const Timer = () => {
           </div>
 
           <div className="buttons-container">
-            {isPaused
-              ? <PlayButton onClick={handlePlayPause} />
-              : <PauseButton onClick={handlePlayPause} />}
+            {mode === 'work' ? (
+              isPaused ? (
+                <PlayButton onClick={handlePlayPause} />
+              ) : (
+                <PauseButton onClick={handlePlayPause} />
+              )
+            ) : (
+              <GenericButton color="#1d4ed8" text="Add Task" textColor="white" onClick={handlePlayPause} />
+            )}
+
             <button
               className="im-done-button"
               onClick={handleImDone}
