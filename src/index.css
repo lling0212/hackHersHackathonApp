@@ -30,6 +30,7 @@ body {
   align-items: center;
   border-radius: 4px; /* Optional: rounded corners for grid items */
   font-size: 1.5em; /* Adjust the font size as needed */
+  
 }
 
 /* Ensures that the grid items are squares */
@@ -60,8 +61,10 @@ body {
   align-items: center;
   margin: 0; /*  check there's no margin collapsing */
   padding: 0 30px; /* Ensure there's no padding collapsing and added padding to left and right */
+  margin-top: 20px;
   margin-bottom: 20px;
   width: 100%;
+  color: #121212;
 }
 
 code {
@@ -182,8 +185,7 @@ input:focus + .slider {
 /* for AddTask Button */
 
 .add-task-form{
-  position: absolute;
-  margin-top: 10px; /* Adjust the value as needed */
+  position: flex;
   padding: 20px; /* Add some padding around the form */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   align-self: flex-start;
@@ -203,7 +205,7 @@ form {
 /* Styles for input fields */
 input[type="text"],
 input[type="number"] {
-  /* width: calc(100% - 20px); Full width minus padding */
+  
   width: 100%; 
   padding: 10px;
   font-size: 20px;
