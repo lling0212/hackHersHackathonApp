@@ -14,7 +14,7 @@ const Header = ({onAdd}) => {
         <PuzzleToggle/>
         <img src="/finalLogo.png" alt="Hackathon Logo" style={{ width: '300px', height: 'auto' }}/>
         {/* <h2>{ puzzleChosen }</h2> */}
-        <GenericButton color="#1d4ed8 " text="Add Task" textColor="white" onClick={onAdd}/>
+        <GenericButton color="#00A36C		 " text="Add Task" textColor="white" onClick={onAdd}/>
       </header>
     </div>
   )

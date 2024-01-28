@@ -22,6 +22,9 @@ const Task = ({ index }) => {
   if (task && task.state === "not started") {
     myClass = "grid-item notstarted"
   }   
+  if (task && puzzleMode && task.state === "complete") {
+    myClass = "grid-item puzzlecompleted"
+  }   
 
   return (
     <div className={myClass}

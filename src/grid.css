@@ -29,6 +29,11 @@
   border: 4px solid #87CEEB			; /* Corrected border property */
 }
 
+.grid-item.puzzlecompleted {
+  background-color: #4682B4			; /* Slightly lighter color for the grid items */
+}
+
+
 .task-title {
     font-size: 20px;
     text-align: center;
