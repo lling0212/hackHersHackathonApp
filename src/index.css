@@ -235,7 +235,7 @@ button[type="button"] {
 
 /* Styles specific to the submit/add task button */
 button[type="submit"] {
-  background-color: #26c25f ; /* Green color */
+  background-color: #00A36C ; /* Green color */
   color: white;
 }
 
@@ -262,9 +262,9 @@ button:hover {
 /* css for generic button */
 .genericbtn{
   color: white;
-  padding: 15px 30px;
+  padding: 23px 18px;
   border: none;
-  border-radius: 5px;
+  border-radius: 20px;
   font-size: 22px;
   font-weight: bold;
   cursor: pointer;
@@ -292,27 +292,29 @@ button:hover {
 /* image selector*/
 
 .puzzle-container {
-  display: flex;
-  flex-direction: row;
-  min-width: 500px;
-  max-width: 250px;
-  margin: 0 auto;
-  justify-content: center; /* Center the puzzle selectors horizontally */
-  align-items: center; /* Align the puzzle selectors vertically */
-  padding: 20px; /* Add some padding around the entire container */
-  gap: 20px; /* Add space between each puzzle selector */
+  display: flex; 
+  flex-direction: row; 
+  min-width: 500px; 
+  max-width: 500px; 
+  margin: 0 auto; 
+  justify-content: center; 
+  align-items: center; 
+  padding: 20px; 
+  gap: 20px; 
 }
 
 .puzzle {
   flex: 1; /* Each puzzle selector will take up equal space */
-  padding: 0px 0px; /* Padding inside each puzzle selector for spacing */
   text-align: center; /* Center the text inside each puzzle selector */
-  background-color: #333; /* Background color of the puzzle selectors */
+  background-color: #121212; /* Background color of the puzzle selectors */
   color: #fff; /* Text color of the puzzle selectors */
   border-radius: 5px; /* Rounded corners for the puzzle selectors */
   cursor: pointer; /* Change mouse cursor to pointer when hovering over the selectors */
   transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  overflow: hidden;
+  width: 100%;
 }
+
 
 .puzzle:hover {
   background-color: #555; /* Slightly lighter background color on hover */
@@ -321,3 +323,4 @@ button:hover {
 .puzzle.selected {
   border: 3px solid #FFFFFF; /*  */
 }
+

@@ -7,8 +7,9 @@ import Context from '../Context'
 import './Timer.css'
 import GenericButton from './GenericButton';
 
-const red = '#2C3E50';
+const grey = '#2C3E50';
 const green = '#26c25f';
+const blue = '#1d4ed8';
 
 const Timer = () => {
   const { selectedTile, setShowMainScr, setShowTimer } = useContext(Context);
@@ -159,7 +160,8 @@ const Timer = () => {
               text={`${minutes}:${seconds}`}
               styles={buildStyles({
                 textColor: '#fff',
-                pathColor: mode === 'work' ? red : green,
+                // pathColor: mode === 'work' ? grey : mode === 'break' ? pink : green,
+                pathColor: mode === 'work' ? grey : grey,
                 trailColor: '#121212',
                 backgroundColor: '#121212',
                 textSize: '18px',
@@ -180,7 +182,7 @@ const Timer = () => {
                 <PauseButton onClick={handlePlayPause} />
               )
             ) : (
-              <GenericButton color="#1d4ed8" text="Add Task" textColor="white" onClick={handlePlayPause} />
+              <GenericButton color="#1d4ed8" text="Start Break" textColor="white" onClick={handlePlayPause} />
             )}
 
             <button

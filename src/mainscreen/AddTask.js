@@ -84,7 +84,7 @@ const AddTask = () => {
     type = "submit"
     
     >
-      Add Task
+      Add
 
     </button>
 
