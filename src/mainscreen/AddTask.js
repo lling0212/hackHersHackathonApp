@@ -69,6 +69,7 @@ const AddTask = () => {
               placeholder="# of Blocks"
               value={timeblocks}
               onChange={handleBlocksSetting}
+              onFocus={() => timeblocks === 0 && setBlocks('')}
             >
         </input>
 
