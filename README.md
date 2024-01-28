@@ -1,4 +1,5 @@
 # Link to our project demo
+Watch at 1.25x speed to make the video 10 minutes! :)
 https://youtu.be/agl5VIzQup0
 
 # Getting Started with Create React App
