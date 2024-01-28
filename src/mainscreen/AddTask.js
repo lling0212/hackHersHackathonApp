@@ -46,7 +46,7 @@ const AddTask = () => {
       const handleCancel = (event) => {
         setName('');
         setBlocks('');
-        
+        contextInfo.setShowAddTask(false);
 
   };
 
