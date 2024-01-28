@@ -13,7 +13,7 @@ const MyImage = ({ imageChosen }) => {
   return (
     <div className={imageClass}
       onClick = { () => {setPuzzleChosen(imageChosen)} } >
-        <img src={ imageChosen } style={{ maxWidth: '90%', maxHeight: '90%' }} />
+        <img src={ `${imageChosen}.png` } style={{ maxWidth: '90%', maxHeight: '90%' }} />
     </div>
   )
 }

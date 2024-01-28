@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import MyImage from './MyImage.js';
 
 const ImageSelector = () => {
-  const puzzles = ['puzzle1.jpeg', 'test.jpeg', 'puzzle3.jpeg'];
+  const puzzles = ['image_1', 'image_2', 'image_3'];
 
   return (
     <div className="puzzle-strip">

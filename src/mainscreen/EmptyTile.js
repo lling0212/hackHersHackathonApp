@@ -2,14 +2,16 @@ import React from 'react';
 import { useContext } from 'react';
 import Context from '../Context.js';
 
-const EmptyTile = ({ number }) => {
+const EmptyTile = ({ index }) => {
 
-    const { puzzleMode, puzzleChosen, allCompleted } = useContext(Context);  
+    const { puzzleMode, puzzleChosen, allCompleted } = useContext(Context); 
+    const imageName = `${puzzleChosen}_part_00${index + 1}.jpg`; 
+    console.log(imageName)
     
     return (
         <div>
             <div className="grid-item"> 
-                {puzzleMode && allCompleted && <img src={puzzleChosen} style={{ maxWidth: '100%', maxHeight: '100%' }}/>}
+                {(puzzleMode && allCompleted) && <img src={imageName} style={{ maxWidth: '100%', maxHeight: '100%' }}/>}
             </div>
         </div>
     )

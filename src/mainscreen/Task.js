@@ -9,6 +9,9 @@ const Task = ({ index }) => {
   const { setSelectedTile, setShowTimer, setShowMainScr } = useContext(Context);
   const task = tasks[index];
 
+  const imageName = `${puzzleChosen}_part_00${index + 1}.jpg`
+  console.log(imageName)
+
   let myClass = "grid-item";
   if (task && task.state === "complete") {
     myClass = "grid-item complete"
@@ -30,7 +33,7 @@ const Task = ({ index }) => {
         }
       }}>
       {puzzleMode && task && task.state === "complete" ? (
-        <img src={puzzleChosen} style={{ maxWidth: '100%', maxHeight: '100%' }} />
+        <img src={imageName} style={{ maxWidth: '100%', maxHeight: '100%' }} />
       ) : (
         <div className="task-text-box">
           <div className="task-title">{task && task.text}</div> 

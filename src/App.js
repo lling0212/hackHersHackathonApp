@@ -1,5 +1,5 @@
 import './App.css';
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import Grid from './mainscreen/Grid.js';
 import AddTask from './mainscreen/AddTask.js';
 import ImageSelector from './mainscreen/ImageSelector.js';
@@ -14,7 +14,7 @@ function App() {
   const [showAddTask, setShowAddTask]  = useState(false);
   const [allCompleted, setAllCompleted]  = useState(false);
   const [showTimer, setShowTimer]  = useState(false);
-  const [puzzleChosen, setPuzzleChosen] = useState("test.jpeg"); // img name to be changed
+  const [puzzleChosen, setPuzzleChosen] = useState('image_1'); 
   const [puzzleMode, setPuzzleMode] = useState(true);
   const [selectedTile, setSelectedTile] = useState(0); // index of chosen tile: 0 - 8
 
@@ -61,7 +61,44 @@ function App() {
         ? {...task, state: "complete"} 
         : task
     ));
+    
+    // const completedTasksCount = tasks.reduce((count, task) => {
+    //   if (task.state === "complete") {
+    //     return count + 1;
+    //   }
+    //   return count;
+    // }, 0);
+
+    // if (completedTasksCount + 1 === tasks.length) {
+    //   setAllCompleted(true);
+    // }
+
+    // console.log(completedTasksCount);
+    // console.log(tasks);
+    // console.log(allCompleted);
+
   }
+
+  useEffect(() => {
+    // Log tasks after state update
+    console.log("Updated tasks:", tasks);
+  
+    // Count completed tasks
+    const completedTasksCount = tasks.reduce((count, task) => {
+      if (task.state === "complete") {
+        return count + 1;
+      }
+      return count;
+    }, 0);
+  
+    // Check if all tasks are completed
+    if (completedTasksCount === tasks.length) {
+      setAllCompleted(true);
+    }
+  
+    console.log("Completed tasks count:", completedTasksCount);
+    console.log("All tasks completed:", allCompleted);
+  }, [tasks, allCompleted]);
 
   const startTask = (id) => {
     setTasks(tasks.map(
@@ -80,7 +117,7 @@ function App() {
   }
 
   const toggleShowImage = (id) => {
-    // check if the && syntax works
+    
     setTasks(tasks.map(
       (task) => task.id === id && task.state === "completed"
         ? {...task, showPuzzle: !task.showPuzzle} 
@@ -94,11 +131,9 @@ function App() {
     const newTask = {id, ... task}
     if (tasks.length < 9) { 
       setTasks([...tasks, newTask])
+      setAllCompleted(false);
     }
   }
-
-  // functions to modify image selected?
-
 
   
   return (
@@ -119,6 +154,8 @@ function App() {
         setSelectedTile,
         tasks,
         setTasks,
+        allCompleted,
+        setAllCompleted,
         deleteTask,
         completeTask,
         startTask,
