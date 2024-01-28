@@ -27,6 +27,7 @@ const AddTask = () => {
         }
         
         contextInfo.addTask({ text, timeblocks, doneblocks, showPuzzle, state });
+        contextInfo.setShowAddTask(false);
 
         // {
         //   id: 1,
