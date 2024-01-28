@@ -14,40 +14,53 @@ body, html {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  position: relative; /* Needed for absolute positioning of children */
+  position: relative;
   background-color: #121212;
 }
 
 .progress-bar-container {
   width: 450px;
   height: 450px;
-  margin-top: -150px;
+  margin-bottom: 20px; /* Adjusted for visual balance */
 }
 
 .buttons-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* Changed to center for consistent spacing */
   align-items: center;
-  margin-top: 20px;
-  width: 300px;
+  width: 100%; /* Changed to full width for flexibility */
+  padding: 0 20px; /* Padding on the sides */
 }
 
-.PlayButton, .PauseButton, .im-done-button {
-  flex-grow: 1;
+.play-svg-button, .pause-svg-button {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  margin: 0 10px; /* Spacing between buttons */
+}
+
+.im-done-button {
   background-color: #21C55E;
   border: none;
   font-weight: bold;
-  height: 70px;
+  height: 70px; /* Fixed height for consistency */
   padding: 10px 20px;
   border-radius: 20px;
   color: white;
   font-size: 1.5rem;
   cursor: pointer;
-  margin: 0 10px;
+  margin: 0 10px; /* Spacing between buttons */
   white-space: nowrap;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-grow: 0;
+  flex-shrink: 0;
 }
 
 .horizontal-bar {
@@ -59,13 +72,15 @@ body, html {
 
 .motivational-text {
   color: #fff;
-  font-size: 20px;
+  font-size: 23px;
   text-align: center;
   margin-top: 10px;
   margin-bottom: 20px;
   padding: 0 20px;
   max-width: 450px;
   width: 100%;
+  font-weight: bold; /* Make text bold */
+  font-style: italic; /* Make text italic */
 }
 
 .completed-blocks-container {
@@ -80,15 +95,11 @@ body, html {
   font-size: 1rem;
 }
 
-.completed-blocks-text {
-  display: none; /* Hide this text if we're using .completed-blocks-container instead */
-}
-
 .home-button {
   position: fixed;
   top: 10px;
   right: 10px;
-  background-color: #2C3E50; /* Background color is set to #121212 */
+  background-color: #2C3E50;
   color: white;
   border-radius: 5px;
   padding: 10px 20px;
@@ -99,26 +110,26 @@ body, html {
 }
 
 .home-button:hover {
-  background-color: #26c25f; /* Darken the color on hover, adjust the color as needed */
+  background-color: #26c25f;
 }
 
 .delete-task-button {
-  position: fixed; /* Fixed position relative to the viewport */
-  bottom: 10px; /* 10px from the bottom */
-  right: 10px; /* 10px from the right */
-  background-color: #2C3E50; /* Background color of your choice */
-  color: white; /* Text color */
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background-color: #2C3E50;
+  color: white;
   border: none;
-  border-radius: 5px; /* Rounded corners */
-  padding: 10px 20px; /* Padding inside the button */
+  border-radius: 5px;
+  padding: 10px 20px;
   cursor: pointer;
-  font-size: 1rem; /* Font size */
-  z-index: 1000; /* Ensures the button is above other elements */
+  font-size: 1rem;
+  z-index: 1000;
   transition: background-color 0.3s ease;
   white-space: nowrap;
-  min-width: 120px
+  min-width: 120px;
 }
 
 .delete-task-button:hover {
-  background-color: red; /* Darken the color on hover */
+  background-color: red;
 }

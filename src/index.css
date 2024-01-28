@@ -30,7 +30,6 @@ body {
   align-items: center;
   border-radius: 4px; /* Optional: rounded corners for grid items */
   font-size: 1.5em; /* Adjust the font size as needed */
-  
 }
 
 /* Ensures that the grid items are squares */
@@ -61,10 +60,8 @@ body {
   align-items: center;
   margin: 0; /*  check there's no margin collapsing */
   padding: 0 30px; /* Ensure there's no padding collapsing and added padding to left and right */
-  margin-top: 20px;
   margin-bottom: 20px;
   width: 100%;
-  color: #121212;
 }
 
 code {
@@ -90,7 +87,7 @@ code {
 }
 
 .puzzle-mode-title{
-  color: #FFFFFF; 
+  color: #FFFFFF;
   margin: 0;
   padding: 0;
   font-size: 20px;
@@ -134,7 +131,7 @@ code {
 
 
 input:checked + .slider:before {
-  transform: translateX(40px); 
+  transform: translateX(40px);
 }
 
 input:checked + .slider {
@@ -167,7 +164,7 @@ input:focus + .slider {
 .add-task-visible {
   width: 300px; /* Width of the form when visible */
   position: absolute;
-  right: 20px; 
+  right: 20px;
   top: 0;
   /* transition: transform 0.3s ease-in-out;
   transform: translateX(0); /* Start from its own position */
@@ -185,7 +182,8 @@ input:focus + .slider {
 /* for AddTask Button */
 
 .add-task-form{
-  position: flex;
+  position: absolute;
+  margin-top: 10px; /* Adjust the value as needed */
   padding: 20px; /* Add some padding around the form */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   align-self: flex-start;
@@ -197,7 +195,7 @@ form {
   background: #333; /* Dark background for the form */
   padding: 30px 20px;
   margin-right: 20px;
-  
+
   border-radius: 5px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
@@ -205,7 +203,7 @@ form {
 /* Styles for input fields */
 input[type="text"],
 input[type="number"] {
-  
+  /* width: calc(100% - 20px); Full width minus padding */
   width: 100%; 
   padding: 10px;
   font-size: 20px;

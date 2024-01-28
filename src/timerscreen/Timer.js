@@ -17,18 +17,18 @@ const Timer = () => {
   const taskid = tasks[selectedTile].id;
 
   const [quotes, setQuotes] = useState([
-    {id: 1, text: "You don't have to be great to start, but you have to start to be great"},
-    {id: 2, text: "Your dreams are valid, and so is your effort. Keep going"},
-    {id: 3, text: "Stay focused, and keep moving forward. You're unstoppable!"},
-    {id: 4, text: "Keep that concentration up, and greatness awaits!"},
-    {id: 5, text: "Hey, don't let distractions throw you off course."},
-    {id: 6, text: "Dive in - you've got what it takes!"},
-    {id: 7, text: "You've got this! "},
-    {id: 8, text: "You are never too old to set another goal or to dream a new dream"},
-    {id: 9, text: "The secret of getting ahead is getting started"},
-    {id: 10, text: "Focus on progress not perfection"},
-    {id: 11, text: "Don't let what you cannot do interfere with what you can do"},
-    {id: 12, text: "Believe you can, and you're halfway there"},
+    {id: 1, text: "\"You don't have to be great to start, but you have to start to be great.\""},
+    {id: 2, text: "\"Your dreams are valid, and so is your effort. Keep going!\""},
+    {id: 3, text: "\"Stay focused, and keep moving forward. You're unstoppable!\""},
+    {id: 4, text: "\"Keep that concentration up, and greatness awaits!\""},
+    {id: 5, text: "\"Hey, don't let distractions throw you off course.\""},
+    {id: 6, text: "\"Dive in - you've got what it takes!\""},
+    {id: 7, text: "\"You've got this!\""},
+    {id: 8, text: "\"You are never too old to set another goal or to dream a new dream.\""},
+    {id: 9, text: "\"The secret of getting ahead is getting started.\""},
+    {id: 10, text: "\"Focus on progress not perfection.\""},
+    {id: 11, text: "\"Don't let what you cannot do interfere with what you can do.\""},
+    {id: 12, text: "\"Believe you can, and you're halfway there.\""},
   ])
   const [breakActivities, setBreakActivities] = useState([
     {

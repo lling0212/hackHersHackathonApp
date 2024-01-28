@@ -1,10 +1,20 @@
-function PauseButton(props) {
+function PauseButton({ onClick }) {
   return (
-    <button {...props}>
-      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="#1d4ed8">
-        <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clipRule="evenodd" />
-      </svg>
-    </button>
+    <svg
+      onClick={onClick}
+      xmlns="http://www.w3.org/2000/svg"
+      className="pause-svg-button"
+      viewBox="0 0 20 20"
+      tabIndex="0"
+      style={{
+        width: '70px',
+        height: '70px',
+      }}
+    >
+      <circle cx="10" cy="10" r="10" fill="#007bff" />
+      <rect x="6" y="5" width="2" height="10" fill="#121212" />
+      <rect x="12" y="5" width="2" height="10" fill="#121212" />
+    </svg>
   );
 }
 
