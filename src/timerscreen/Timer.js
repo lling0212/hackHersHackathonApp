@@ -72,8 +72,8 @@ const Timer = () => {
   const [activityIndex, setActivityIndex] = useState(Math.floor(Math.random() * breakActivities.length));
   const [quoteIndex, setQuoteIndex] = useState(Math.floor(Math.random() * quotes.length));
 
-    const workMinutes = 1;
-    const breakMinutes = 1;
+    const workMinutes = 25;
+    const breakMinutes = 5;
 
     const [isPaused, setIsPaused] = useState(true);
     const [mode, setMode] = useState('work');
