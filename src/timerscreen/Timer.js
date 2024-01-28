@@ -64,7 +64,7 @@ const Timer = () => {
     },
     {
       id: 7,
-      text: "🎧 Listen to this tune",
+      text: "🎧 Listen to this song!",
       link: "https://www.youtube.com/watch?v=aAQZPBwz2CI",
     },
 
@@ -200,10 +200,18 @@ const Timer = () => {
           </div>
           
           <div className="motivational-text">
-            {mode === 'work' 
-            ? <a href={quotes[quoteIndex].link}>{quotes[quoteIndex].text}</a> 
-            : <p>{ breakActivities[activityIndex].text }</p>
-            }
+            {mode === 'work' ?
+            
+            (
+              <a href={quotes[quoteIndex].link} target="_blank" rel="noopener noreferrer">
+                {quotes[quoteIndex].text}
+              </a>
+            ) : (
+              <a href={breakActivities[activityIndex].link} target="_blank" rel="noopener noreferrer" className="white-link" >
+                {breakActivities[activityIndex].text}
+              </a>
+            )}
+            
           </div>
           
 

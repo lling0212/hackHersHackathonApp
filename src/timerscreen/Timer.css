@@ -132,3 +132,12 @@ body, html {
 .delete-task-button:hover {
   background-color: red;
 }
+
+.white-link{
+  color:white;
+}
+
+.white-link:hover {
+  color: #cccccc; /* or another color for hover state */
+  text-decoration: underline; 
+}
