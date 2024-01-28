@@ -12,6 +12,7 @@ function App() {
   // control how components are rendered
   const [showMainScr, setShowMainScr] = useState(true);
   const [showAddTask, setShowAddTask]  = useState(false);
+  const [allCompleted, setAllCompleted]  = useState(false);
   const [showTimer, setShowTimer]  = useState(false);
   const [puzzleChosen, setPuzzleChosen] = useState("test.jpeg"); // img name to be changed
   const [puzzleMode, setPuzzleMode] = useState(true);

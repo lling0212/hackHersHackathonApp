@@ -23,7 +23,7 @@ const Task = ({ index }) => {
   return (
     <div className={myClass}
       onClick={() => {
-        if (task && task.state !== "complete") {
+        if (task) {
           setSelectedTile(index)
           setShowTimer(true)
           setShowMainScr(false)

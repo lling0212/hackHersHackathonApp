@@ -4,12 +4,12 @@ import Context from '../Context.js';
 
 const EmptyTile = ({ number }) => {
 
-    const { puzzleMode, puzzleChosen } = useContext(Context);  
+    const { puzzleMode, puzzleChosen, allCompleted } = useContext(Context);  
     
     return (
         <div>
             <div className="grid-item"> 
-                {puzzleMode && <img src={puzzleChosen} style={{ maxWidth: '100%', maxHeight: '100%' }}/>}
+                {puzzleMode && allCompleted && <img src={puzzleChosen} style={{ maxWidth: '100%', maxHeight: '100%' }}/>}
             </div>
         </div>
     )

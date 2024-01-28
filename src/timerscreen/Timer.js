@@ -10,8 +10,11 @@ const red = '#2C3E50';
 const green = '#26c25f';
 
 const Timer = () => {
-  const {selectedTile, setShowMainScr, setShowTimer } = useContext(Context);
-  const {workMode} = useState(true);
+  const { selectedTile, setShowMainScr, setShowTimer } = useContext(Context);
+  const { tasks, setTasks, completeTask, deleteTask, addTimeToTask } = useContext(Context);
+  const task = tasks[selectedTile];
+  const taskid = tasks[selectedTile].id;
+
   const [quotes, setQuotes] = useState([
     {id: 1, text: "You don't have to be great to start, but you have to start to be great"},
     {id: 2, text: "Your dreams are valid, and so is your effort. Keep going"},
@@ -64,12 +67,11 @@ const Timer = () => {
     },
 
   ]);
-  
   const [activityIndex, setActivityIndex] = useState(Math.floor(Math.random() * breakActivities.length));
   const [quoteIndex, setQuoteIndex] = useState(Math.floor(Math.random() * quotes.length));
 
-    const workMinutes = 25;
-    const breakMinutes = 5;
+    const workMinutes = 1;
+    const breakMinutes = 1;
 
     const [isPaused, setIsPaused] = useState(true);
     const [mode, setMode] = useState('work');
@@ -92,7 +94,7 @@ const Timer = () => {
         secondsLeftRef.current = nextSeconds;
 
         if (nextMode === 'break') {
-          setCompletedBlocks(blocks => blocks + 1);
+          addTimeToTask(taskid);
         }
 
         setIsPaused(true);
@@ -126,10 +128,16 @@ const Timer = () => {
     };
 
     const handleDeleteTask = () => {
-      // Logic for deleting a task
-      console.log("Task deleted");
-      // You can update state here to reflect the deletion
+      deleteTask(taskid)
+      setShowMainScr(true);
+      setShowTimer(false);
     };
+
+    const handleImDone = () => {
+      completeTask(taskid);
+      setShowMainScr(true);
+      setShowTimer(false);
+    }
 
     const totalSeconds = mode === 'work' ? workMinutes * 60 : breakMinutes * 60;
     const percentage = Math.round(secondsLeft / totalSeconds * 100);
@@ -169,7 +177,7 @@ const Timer = () => {
               : <PauseButton onClick={handlePlayPause} />}
             <button
               className="im-done-button"
-              onClick={() => {/* handle the 'I'm done' action here */}}
+              onClick={handleImDone}
             >
               I'm done
             </button>
@@ -178,12 +186,16 @@ const Timer = () => {
           <div className="horizontal-bar"></div>
 
           <div className="completed-blocks-container">
-            Completed Blocks: {completedBlocks}
+            Completed Blocks: {task.doneblocks}
           </div>
-
-          <p className="motivational-text">
-            "Stay focused and never give up."
-          </p>
+          
+          <div className="motivational-text">
+            {mode === 'work' 
+            ? <a href={quotes[quoteIndex].link}>{quotes[quoteIndex].text}</a> 
+            : <p>{ breakActivities[activityIndex].text }</p>
+            }
+          </div>
+          
 
           <button className="delete-task-button" onClick={handleDeleteTask}>
             Delete Task
