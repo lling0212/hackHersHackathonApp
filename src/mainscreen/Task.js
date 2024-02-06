@@ -1,7 +1,7 @@
 import React from 'react';
 import { useContext } from 'react';
 import Context from '../Context.js';
-import '../grid.css';
+import './grid.css';
 
 const Task = ({ index }) => {
   const { tasks, selectedTile, showTimer, showMainScr } = useContext(Context);
