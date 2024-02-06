@@ -72,154 +72,154 @@ const Timer = () => {
   const [activityIndex, setActivityIndex] = useState(Math.floor(Math.random() * breakActivities.length));
   const [quoteIndex, setQuoteIndex] = useState(Math.floor(Math.random() * quotes.length));
 
-    const workMinutes = 25;
-    const breakMinutes = 5;
+  const workMinutes = 1;
+  const breakMinutes = 5;
 
-    const [isPaused, setIsPaused] = useState(true);
-    const [mode, setMode] = useState('work');
-    const [secondsLeft, setSecondsLeft] = useState(workMinutes * 60);
-    const [completedBlocks, setCompletedBlocks] = useState(0);
+  const [isPaused, setIsPaused] = useState(true);
+  const [mode, setMode] = useState('work');
+  const [secondsLeft, setSecondsLeft] = useState(workMinutes * 60);
+  const [completedBlocks, setCompletedBlocks] = useState(0);
 
-    const secondsLeftRef = useRef(secondsLeft);
-    const isPausedRef = useRef(isPaused);
-    const modeRef = useRef(mode);
+  const secondsLeftRef = useRef(secondsLeft);
+  const isPausedRef = useRef(isPaused);
+  const modeRef = useRef(mode);
 
-    useEffect(() => {
-      function switchMode() {
-        const nextMode = modeRef.current === 'work' ? 'break' : 'work';
-        const nextSeconds = (nextMode === 'work' ? workMinutes : breakMinutes) * 60;
+  useEffect(() => {
+    function switchMode() {
+      const nextMode = modeRef.current === 'work' ? 'break' : 'work';
+      const nextSeconds = (nextMode === 'work' ? workMinutes : breakMinutes) * 60;
 
-        setMode(nextMode);
-        modeRef.current = nextMode;
+      setMode(nextMode);
+      modeRef.current = nextMode;
 
-        setSecondsLeft(nextSeconds);
-        secondsLeftRef.current = nextSeconds;
+      setSecondsLeft(nextSeconds);
+      secondsLeftRef.current = nextSeconds;
 
-        if (nextMode === 'break') {
-          addTimeToTask(taskid);
-        }
-
-        setIsPaused(true);
-        isPausedRef.current = true;
+      if (nextMode === 'break') {
+        addTimeToTask(taskid);
       }
 
-      function tick() {
-        if (isPausedRef.current) {
-          return;
-        }
-        if (secondsLeftRef.current === 0) {
-          switchMode();
-        } else {
-          secondsLeftRef.current--;
-          setSecondsLeft(secondsLeftRef.current);
-        }
-      }
-
-      const interval = setInterval(tick, 1000);
-      return () => clearInterval(interval);
-    }, []);
-
-    const handlePlayPause = () => {
-      setIsPaused(!isPaused);
-      isPausedRef.current = !isPaused;
-    };
-
-    const handleHomeClick = () => {
-      setShowMainScr(true);
-      setShowTimer(false);
-    };
-
-    const handleDeleteTask = () => {
-      deleteTask(taskid)
-      setShowMainScr(true);
-      setShowTimer(false);
-    };
-
-    const handleImDone = () => {
-      completeTask(taskid);
-      setShowMainScr(true);
-      setShowTimer(false);
+      setIsPaused(true);
+      isPausedRef.current = true;
     }
 
-    const totalSeconds = mode === 'work' ? workMinutes * 60 : breakMinutes * 60;
-    const percentage = Math.round(secondsLeft / totalSeconds * 100);
+    function tick() {
+      if (isPausedRef.current) {
+        return;
+      }
+      if (secondsLeftRef.current === 0) {
+        switchMode();
+      } else {
+        secondsLeftRef.current--;
+        setSecondsLeft(secondsLeftRef.current);
+      }
+    }
 
-    const minutes = Math.floor(secondsLeft / 60);
-    let seconds = secondsLeft % 60;
-    if (seconds < 10) seconds = `0${seconds}`;
+    const interval = setInterval(tick, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
-    return (
-        <div className="timer-container">
-          <button className="home-button" onClick={handleHomeClick}>
-            Home
-          </button>
+  const handlePlayPause = () => {
+    setIsPaused(!isPaused);
+    isPausedRef.current = !isPaused;
+  };
 
-          <div className="progress-bar-container">
-            <CircularProgressbar
-              value={percentage}
-              text={`${minutes}:${seconds}`}
-              styles={buildStyles({
-                textColor: '#fff',
-                // pathColor: mode === 'work' ? grey : mode === 'break' ? pink : green,
-                pathColor: mode === 'work' ? grey : grey,
-                trailColor: '#121212',
-                backgroundColor: '#121212',
-                textSize: '18px',
-                pathTransitionDuration: 0.5,
-                strokeLinecap: 'butt',
-                strokeWidth: 1,
-              })}
-              background
-              backgroundPadding={6}
-            />
-          </div>
+  const handleHomeClick = () => {
+    setShowMainScr(true);
+    setShowTimer(false);
+  };
 
-          <div className="buttons-container">
-            {mode === 'work' ? (
-              isPaused ? (
-                <PlayButton onClick={handlePlayPause} />
-              ) : (
-                <PauseButton onClick={handlePlayPause} />
-              )
+  const handleDeleteTask = () => {
+    deleteTask(taskid)
+    setShowMainScr(true);
+    setShowTimer(false);
+  };
+
+  const handleImDone = () => {
+    completeTask(taskid);
+    setShowMainScr(true);
+    setShowTimer(false);
+  }
+
+  const totalSeconds = mode === 'work' ? workMinutes * 60 : breakMinutes * 60;
+  const percentage = Math.round(secondsLeft / totalSeconds * 100);
+
+  const minutes = Math.floor(secondsLeft / 60);
+  let seconds = secondsLeft % 60;
+  if (seconds < 10) seconds = `0${seconds}`;
+
+  return (
+      <div className="timer-container">
+        <button className="home-button" onClick={handleHomeClick}>
+          Home
+        </button>
+
+        <div className="progress-bar-container">
+          <CircularProgressbar
+            value={percentage}
+            text={`${minutes}:${seconds}`}
+            styles={buildStyles({
+              textColor: '#fff',
+              // pathColor: mode === 'work' ? grey : mode === 'break' ? pink : green,
+              pathColor: mode === 'work' ? grey : grey,
+              trailColor: '#121212',
+              backgroundColor: '#121212',
+              textSize: '18px',
+              pathTransitionDuration: 0.5,
+              strokeLinecap: 'butt',
+              strokeWidth: 1,
+            })}
+            background
+            backgroundPadding={6}
+          />
+        </div>
+
+        <div className="buttons-container">
+          {mode === 'work' ? (
+            isPaused ? (
+              <PlayButton onClick={handlePlayPause} />
             ) : (
-              <GenericButton color="#1d4ed8" text="Start Break" textColor="white" onClick={handlePlayPause} />
-            )}
+              <PauseButton onClick={handlePlayPause} />
+            )
+          ) : (
+            <GenericButton color="#1d4ed8" text="Start Break" textColor="white" onClick={handlePlayPause} />
+          )}
 
-            <button
-              className="im-done-button"
-              onClick={handleImDone}
-            >
-              I'm done
-            </button>
-          </div>
-
-          <div className="horizontal-bar"></div>
-
-          <div className="completed-blocks-container">
-            Completed Blocks: {task.doneblocks}
-          </div>
-          
-          <div className="motivational-text">
-            {mode === 'work' ?
-            
-            (
-              <a href={quotes[quoteIndex].link} target="_blank" rel="noopener noreferrer">
-                {quotes[quoteIndex].text}
-              </a>
-            ) : (
-              <a href={breakActivities[activityIndex].link} target="_blank" rel="noopener noreferrer" className="white-link" >
-                {breakActivities[activityIndex].text}
-              </a>
-            )}
-            
-          </div>
-          
-
-          <button className="delete-task-button" onClick={handleDeleteTask}>
-            Delete Task
+          <button
+            className="im-done-button"
+            onClick={handleImDone}
+          >
+            I'm done
           </button>
         </div>
-      );
+
+        <div className="horizontal-bar"></div>
+
+        <div className="completed-blocks-container">
+          Completed Blocks: {task.doneblocks}
+        </div>
+        
+        <div className="motivational-text">
+          {mode === 'work' ?
+          
+          (
+            <a href={quotes[quoteIndex].link} target="_blank" rel="noopener noreferrer">
+              {quotes[quoteIndex].text}
+            </a>
+          ) : (
+            <a href={breakActivities[activityIndex].link} target="_blank" rel="noopener noreferrer" className="white-link" >
+              {breakActivities[activityIndex].text}
+            </a>
+          )}
+          
+        </div>
+        
+
+        <button className="delete-task-button" onClick={handleDeleteTask}>
+          Delete Task
+        </button>
+      </div>
+    );
 }
 
 export default Timer

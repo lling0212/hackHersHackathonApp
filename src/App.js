@@ -9,16 +9,15 @@ import Timer from './timerscreen/Timer.js';
 
 function App() {
 
-  // control how components are rendered
   const [showMainScr, setShowMainScr] = useState(true);
   const [showAddTask, setShowAddTask]  = useState(false);
   const [allCompleted, setAllCompleted]  = useState(false);
   const [showTimer, setShowTimer]  = useState(false);
   const [puzzleChosen, setPuzzleChosen] = useState('image_1'); 
   const [puzzleMode, setPuzzleMode] = useState(true);
-  const [selectedTile, setSelectedTile] = useState(0); // index of chosen tile: 0 - 8
+  const [selectedTile, setSelectedTile] = useState(0); 
 
-  // actual data
+  
   const [tasks, setTasks] = useState([
     {
       id: 1,
@@ -44,10 +43,8 @@ function App() {
       showPuzzle: false,
       state: "complete"
     },
-    // can add some more sample task
   ])
 
-  // Functions to modify tasks
   const deleteTask = (id) => {
     setTasks(tasks.filter(
       (task) => task.id !== id
@@ -61,29 +58,10 @@ function App() {
         ? {...task, state: "complete"} 
         : task
     ));
-    
-    // const completedTasksCount = tasks.reduce((count, task) => {
-    //   if (task.state === "complete") {
-    //     return count + 1;
-    //   }
-    //   return count;
-    // }, 0);
-
-    // if (completedTasksCount + 1 === tasks.length) {
-    //   setAllCompleted(true);
-    // }
-
-    // console.log(completedTasksCount);
-    // console.log(tasks);
-    // console.log(allCompleted);
-
   }
 
   useEffect(() => {
-    // Log tasks after state update
-    console.log("Updated tasks:", tasks);
-  
-    // Count completed tasks
+    
     const completedTasksCount = tasks.reduce((count, task) => {
       if (task.state === "complete") {
         return count + 1;
@@ -91,13 +69,10 @@ function App() {
       return count;
     }, 0);
   
-    // Check if all tasks are completed
     if (completedTasksCount === tasks.length) {
       setAllCompleted(true);
     }
-  
-    console.log("Completed tasks count:", completedTasksCount);
-    console.log("All tasks completed:", allCompleted);
+
   }, [tasks, allCompleted]);
 
   const startTask = (id) => {
@@ -117,7 +92,6 @@ function App() {
   }
 
   const toggleShowImage = (id) => {
-    
     setTasks(tasks.map(
       (task) => task.id === id && task.state === "completed"
         ? {...task, showPuzzle: !task.showPuzzle} 
@@ -126,7 +100,6 @@ function App() {
   }
 
   const addTask =(task) => {
-    // add a task to the grid
     const id = Math.floor(Math.random()*10000) + 1
     const newTask = {id, ... task}
     if (tasks.length < 9) { 
@@ -134,10 +107,8 @@ function App() {
       setAllCompleted(false);
     }
   }
-
   
   return (
-    // change classNames
     <div className="container"> 
       <Context.Provider value = {{
         showMainScr,
@@ -165,41 +136,23 @@ function App() {
 
       {showMainScr ? (
         <>
-          <Header 
-            onAdd = {()=>setShowAddTask(!showAddTask)} // for add task form button
-          />
-
+          <Header onAdd = {()=>setShowAddTask(!showAddTask)} />
           <div className={`main-content ${showAddTask ? 'row-layout' : ''}`}>
-          
-          <Grid // may not need below parameters as we have useContext
-            tasks={tasks} 
-            onClick={()=> {
-              setShowAddTask(!showAddTask)
-            }} // when tile is clicked: start timer, make main disappear when a tile is clicked
-            // modify seleceted Tile; imageChosen={}; setImageChosen={}
-          />
-          
-          <div className={showAddTask ? 'add-task-visible' : 'add-task-hidden'}>
-          {showAddTask && <AddTask onAdd={addTask}/>}
+            <Grid
+              tasks={tasks} 
+              onClick={()=> {
+                setShowAddTask(!showAddTask)
+              }} 
+            />
+            <div className={showAddTask ? 'add-task-visible' : 'add-task-hidden'}>
+              {showAddTask && <AddTask onAdd={addTask}/>}
+            </div>
           </div>
-          
-          </div>
-          
         </>
-        
-
-      ): (<Timer 
-          // task={selectedTile} 
-          // tasks={tasks} 
-          // onComplete={completeTask} 
-          // onDelete={deleteTask}
-          // onStart={startTask}
-          // onAddTime={addTimeToTask} 
-        />
+      ): (<Timer />
       )} 
       {showMainScr && <ImageSelector/>}
       </Context.Provider>
-      
     </div>
     
   );

@@ -1,74 +1,50 @@
-# Link to our project demo
-Watch at 1.25x speed to make the video 10 minutes! :)
+# PomoPuzzle
+
+PomoPuzzle is a web app that combines a **gamified daily task tracker** with a **pomodoro focus timer** as well as a **simple puzzle game**. 
+
+Each of the inputted tasks corresponds to a puzzle piece. As the user completes the to-dos on their list, they also gradually completes the puzzle. 
+
+It is a project developed in 48 hours for the 2024 MCIT hackathon at the University of Pennsylvania, and won **"Most Creative Solution"** among 10+ teams. 
+
+### Key Features
+
+![Main Screen](/demoImages/mainScreen.png "Main Screen")
+* **3-by-3 grid displaying user's tasks**, color coded based on task progress and tracking time blocks (30-min pomodoro blocks consisting of 25-min work time and 5-min break time) assigned and completed
+* **Puzzle image selector** allows users to change puzzle backgrounds
+
+![Add Form](/demoImages/addForm.png "Add Form")
+* **Add task form** allows user to add a task to the grid
+
+![Main Screen Puzzle Mode](/demoImages/mainScreenPuzzle.png "Main Screen Puzzle")
+* **Puzzle mode toggle** allows user to switch between puzzle mode (showing puzzle image for completed tasks) and non-puzzle mode
+
+![Completed Puzzle](/demoImages/completedPuzzle.png "Completed Puzzle")
+* **Entire puzzle presented** when all tasks are completed
+
+![Work Timer](/demoImages/workTimer.png "Work Timer")
+* Clicking on a task tile in the grid starts a **work session timer** for that task
+* Completion of the 25-min session **automatically increments time blocks completed**
+* **Randonly generated motivational quote** from a bank of quotes to encourage users
+
+![Break Timer](/demoImages/breakTimer.png "Break Timer")
+* **Break timer** automatically starts once current work session is completed
+* **Randonly generated break activity suggestion** to help users recharge
+
+
+### Tech Stack
+
+* **Languages**: JavaScript, HTML, CSS
+* **Framework**: React
+
+### Aspired Future Enhancements
+
+* Integrate with backend database to allow multiple users, user authentication and save user data
+* Enable Time tracking across different categories of tasks (e.g., track time spent on different courses and allow course instructors to gauge real time spent on their courses)
+* Upload user's own puzzle images
+* Pair users as study buddies for synchronous study sesssions
+
+
+
+### Link to our project demo presentation :)
 https://youtu.be/agl5VIzQup0
 
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

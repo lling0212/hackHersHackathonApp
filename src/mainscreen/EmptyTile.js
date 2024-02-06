@@ -6,8 +6,7 @@ const EmptyTile = ({ index }) => {
 
     const { puzzleMode, puzzleChosen, allCompleted } = useContext(Context); 
     const imageName = `${puzzleChosen}_part_00${index + 1}.jpg`; 
-    console.log(imageName)
-    
+
     return (
         <div>
             <div className="grid-item"> 

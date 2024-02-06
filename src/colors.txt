@@ -1,12 +1,8 @@
 white - #ffffff
 light grey - #b3b3b3
 darker grey - #535353
-darkest gret
 bluish grey - #121212
 black - #191414
-
 green - #1DB954
-pink
 mauve - #E0B0FF	
 violet - #7F00FF	
-

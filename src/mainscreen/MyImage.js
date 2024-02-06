@@ -5,9 +5,7 @@ import { useContext } from 'react';
 const MyImage = ({ imageChosen }) => {
   const { puzzleChosen,setPuzzleChosen } = useContext(Context);
 
-  // checking if this is the selected file 
   const isSelected = imageChosen === puzzleChosen;
-  // applying selected class if it is chosen 
   const imageClass = isSelected ? "puzzle selected" : "puzzle";
 
   return (
